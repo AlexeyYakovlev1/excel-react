@@ -1,0 +1,63 @@
+$grayDark: #cccbcb
+$greenActive: #3C644F
+$grayActive: #D2D2D2
+
+.columns
+    margin-top: 10px
+
+    & .container
+        display: flex
+        align-items: flex-start
+        
+    &__row
+        &-list
+            margin-top: 25px
+            border-right: 1px solid $grayDark
+            border-left: 1px solid $grayDark
+
+            &-item
+                padding: 9.5px 5px
+                text-align: center
+                border-top: 1px solid $grayDark
+
+                &.active
+                    background-color: $grayActive
+                    color: $greenActive
+
+                &:last-child
+                    border-bottom: 1px solid $grayDark
+
+    &__right
+        overflow: auto
+        position: relative
+        left: -1px
+
+        &-header
+            display: flex
+            align-items: center
+            
+            &-list
+                &-item
+                    padding: 2.5px 0
+                    border-left: 1px solid $grayDark
+                    text-transform: uppercase
+                    font-size: 17px
+                    text-align: center
+
+                    &.active
+                        border-bottom: 2px solid $greenActive
+                        color: $greenActive
+                        background-color: $grayActive
+
+                    &:last-child
+                        border-right: 1px solid $grayDark
+
+                & textarea
+                    width: 120px
+                    display: inline-table
+                    border-radius: none
+                    border: 1px solid $grayDark
+                    padding: 3px
+
+                    &.active-cell
+                        border: 1px solid $greenActive

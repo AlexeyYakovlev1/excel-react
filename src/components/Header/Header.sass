@@ -1,0 +1,72 @@
+$gray: #E6E6E6
+$grayDark: #cccbcb
+
+.header
+    padding: 10px
+    background-color: $gray
+    position: sticky
+    top: 0
+    z-index: 99
+
+    & .container
+        display: flex
+        align-items: center
+
+    &__left
+        &-colums
+            width: 150px
+            height: 30px
+            background-color: #fff
+            cursor: pointer
+            border: 1px solid $grayDark
+
+    &-more
+        background-position: center
+        background-size: cover
+        background-repeat: no-repeat
+        transform: rotate(90deg)
+        cursor: pointer
+        width: 16px
+        height: 16px
+        background-image: url(../../images/more.png)
+        margin: 0 10px
+
+    &__right
+        display: flex
+        align-items: center
+
+        &-settings
+            border: 1px solid $grayDark
+            background-color: #fff
+            padding: 6px 15px
+            display: flex
+            align-items: center
+
+            & button
+                background-position: center
+                background-size: cover
+                background-repeat: no-repeat
+                cursor: pointer
+                width: 16px
+                height: 16px
+                border: none
+                background-color: #fff
+
+                &:not(:first-child)
+                    margin-left: 25px
+
+            &-cancel
+                background-image: url(../../images/delete.png)
+
+            &-done
+                background-image: url(../../images/check.png)
+
+            &-formul
+                background-image: url(../../images/formula.png)
+
+        &-value
+            margin-left: 5px
+            width: 350px
+            height: 30px
+            border: 1px solid $grayDark
+            padding: 10px 15px
