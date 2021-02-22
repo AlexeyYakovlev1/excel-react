@@ -4,10 +4,38 @@ import columns, {alphabet} from './cols.js';
 
 function Columns() {
     function clickActive(event) {
-        const activeCell = document.querySelectorAll('.active-cell');
-        activeCell[0].className = activeCell[0].className.replace(' active-cell', '');
-    
         event.target.className += " active-cell";
+
+        const activeCell = document.querySelectorAll('.active-cell');
+        const columnsRightHeaderListItem = document.querySelectorAll('.columns__right-header-list-item');
+        const columnsRowListItem = document.querySelectorAll('.columns__row-list-item');
+        const headerLeftColums = document.querySelector('.header__left-colums');
+
+        if (event.target.className !== activeCell[0]) {
+            activeCell[0].className = activeCell[0].className.replace(' active-cell', '');
+        }
+
+        activeCell.forEach(active => {
+            const symbol = active.dataset.symbol;
+            const row = active.dataset.row;
+            headerLeftColums.value = `${symbol.toUpperCase()}${row}`
+            
+            columnsRightHeaderListItem.forEach(item => {
+                if (item.dataset.symbol.toUpperCase() === symbol) {
+                    item.classList.add('active');
+                } else {
+                    item.classList.remove('active');
+                }
+            });
+
+            columnsRowListItem.forEach(item => {
+                if (item.dataset.row === row) {
+                    item.classList.add('active');
+                } else {
+                    item.classList.remove('active');
+                }
+            })
+        });
     }
 
     return (
@@ -43,14 +71,14 @@ function Columns() {
 
                                         {item.cells.map((cell, idx) => {
                                             return (
-                                                <textarea
+                                                <input
                                                     key={idx}
                                                     onClick={(event) => clickActive(event)}
                                                     className="columns__right-cells-list-item"
                                                     data-cell={`${cell.symbol.toUpperCase()}${cell.number}`}
                                                     data-row={`${cell.number}`}
                                                     data-symbol={`${cell.symbol.toUpperCase()}`}
-                                                ></textarea>
+                                                />
                                             )
                                         })}
                                     </ul>

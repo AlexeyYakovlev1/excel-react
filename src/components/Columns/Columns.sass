@@ -40,24 +40,26 @@ $grayActive: #D2D2D2
                 &-item
                     padding: 2.5px 0
                     border-left: 1px solid $grayDark
+                    border-bottom: 1px solid $grayDark
                     text-transform: uppercase
                     font-size: 17px
                     text-align: center
 
                     &.active
-                        border-bottom: 2px solid $greenActive
+                        border-bottom: 1px solid $greenActive
                         color: $greenActive
                         background-color: $grayActive
 
                     &:last-child
                         border-right: 1px solid $grayDark
 
-                & textarea
+                & input
                     width: 120px
                     display: inline-table
-                    border-radius: none
                     border: 1px solid $grayDark
                     padding: 3px
+                    font-family: sans-serif
+                    height: 38px
 
                     &.active-cell
                         border: 1px solid $greenActive
