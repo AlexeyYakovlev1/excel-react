@@ -58,16 +58,20 @@ function App() {
 
                         switch(formulaInput[0]) {
                             case 'сумм':
-                                let sum = 0;
+                                try {
+                                    let sum = 0;
 
-                                findCells.map((cell) => {
-                                    columnsRightCellsListItem.forEach((cellItem) => {
-                                        if (cellItem.dataset.cell.toLowerCase() === cell) {
-                                            sum += +cellItem.value;
-                                            item.value = sum;
-                                        }
+                                    findCells.map((cell) => {
+                                        columnsRightCellsListItem.forEach((cellItem) => {
+                                            if (cellItem.dataset.cell.toLowerCase() === cell) {
+                                                sum += +cellItem.value;
+                                                item.value = sum;
+                                            }
+                                        })
                                     })
-                                })
+                                } catch (e) {
+                                    item.value = e.message;
+                                }
 
                                 break;
                             default:
@@ -80,8 +84,6 @@ function App() {
             })
         }
     }
-
-
 
     return (
         <div className="app">
